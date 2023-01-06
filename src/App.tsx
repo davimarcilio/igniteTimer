@@ -1,14 +1,8 @@
-import { Button } from './components/Button'
-
+import { Router } from './Router'
 export function App() {
   return (
     <>
-      <Button variant="primary" />
-      <Button variant="danger" />
-      <Button variant="secondary" />
-      <Button variant="success" />
-      <Button variant="warning" />
-      <Button />
+      <Router />
     </>
   )
 }
