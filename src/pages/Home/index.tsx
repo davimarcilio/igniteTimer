@@ -12,11 +12,7 @@ import {
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import * as zod from "zod";
-
-// interface NewCycleFormData {
-//   task: string;
-//   minutesAmout: number;
-// }
+import { useState } from "react";
 
 type NewCycleFormData = zod.infer<typeof newCycleFormValidationSchema>;
 
@@ -28,7 +24,15 @@ const newCycleFormValidationSchema = zod.object({
     .max(60, "O ciclo precisa ser de no máximo 60 minutos"),
 });
 
+interface Cycle {
+  id: string;
+  task: string;
+  minutesAmout: number;
+}
+
 export function Home() {
+  const [cycles, setCycles] = useState<Cycle[]>([]);
+  const [activeCycleId, setActiveCycleId] = useState<string | null>(null);
   const { register, handleSubmit, watch, reset } = useForm<NewCycleFormData>({
     resolver: zodResolver(newCycleFormValidationSchema),
     defaultValues: {
@@ -37,9 +41,17 @@ export function Home() {
     },
   });
   function handleCreateNewCycle(data: NewCycleFormData) {
-    console.log(data);
+    const newCycle: Cycle = {
+      id: String(new Date().getTime()),
+      task: data.task,
+      minutesAmout: data.minutesAmout,
+    };
+    setCycles((cycles) => [...cycles, newCycle]);
+    setActiveCycleId(newCycle.id);
     reset();
   }
+
+  const activeCycle = cycles.find((cycle) => cycle.id === activeCycleId);
 
   const task = watch("task");
   const isSubmitDisabled = !task;
