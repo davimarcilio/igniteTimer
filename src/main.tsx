@@ -1,19 +1,16 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { App } from './App'
-import { ThemeProvider } from 'styled-components'
-import { defaultTheme } from './styles/themes/default'
-import { BrowserRouter } from 'react-router-dom'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { App } from "./App";
 
-import { GlobalStyle } from './styles/global'
+import { BrowserRouter } from "react-router-dom";
+import { CyclesContextProvider } from "./contexts/CyclesContext";
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <ThemeProvider theme={defaultTheme}>
+    <CyclesContextProvider>
+      <BrowserRouter>
         <App />
-        <GlobalStyle />
-      </ThemeProvider>
-    </BrowserRouter>
-  </React.StrictMode>,
-)
+      </BrowserRouter>
+    </CyclesContextProvider>
+  </React.StrictMode>
+);

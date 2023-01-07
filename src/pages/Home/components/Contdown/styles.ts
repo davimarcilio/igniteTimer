@@ -5,11 +5,13 @@ export const CountdownContainer = styled.div`
   font-size: 10rem;
   line-height: 8rem;
   color: ${(props) => props.theme["gray-100"]};
+  transition: color 0.5s;
   display: flex;
   gap: 1rem;
 
   span {
     background: ${(props) => props.theme["gray-700"]};
+    transition: background 0.5s;
     padding: 2rem 1rem;
     border-radius: 8px;
   }

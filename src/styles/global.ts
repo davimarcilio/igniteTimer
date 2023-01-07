@@ -10,6 +10,7 @@ body{
     background: ${(props) => props.theme["gray-900"]};
     color: ${(props) => props.theme["gray-300"]};
     -webkit-font-smoothing: antialiased;
+    transition: background .5s;
 }
 :focus{
     outline: 0;

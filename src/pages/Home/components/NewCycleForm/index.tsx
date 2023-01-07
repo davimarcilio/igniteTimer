@@ -37,7 +37,11 @@ export function NewCycleForm() {
       />
       <datalist id="task-suggestions">
         {cycles.map((cycle) => {
-          return <option value={cycle.task}>{cycle.task}</option>;
+          return (
+            <option key={cycle.id} value={cycle.task}>
+              {cycle.task}
+            </option>
+          );
         })}
       </datalist>
       <label htmlFor="minutesAmout">durante</label>

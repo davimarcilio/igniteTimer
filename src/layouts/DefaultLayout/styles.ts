@@ -11,7 +11,7 @@ export const LayoutContainer = styled.div`
     border-radius: 10px;
     background: ${(props) => props.theme["green-500"]};
   }
-
+  transition: background 0.5s;
   max-width: 74rem;
   height: calc(100vh - 10rem);
   overflow: auto;

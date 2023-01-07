@@ -7,6 +7,7 @@ export const FormContainer = styled.div`
   justify-content: center;
   gap: 0.5rem;
   color: ${(props) => props.theme["gray-100"]};
+  transition: color 0.5s;
   font-size: 1.125rem;
   font-weight: bold;
   flex-wrap: wrap;
@@ -49,6 +50,7 @@ const BaseInput = styled.input`
   font-size: 1.125rem;
   padding: 0 0.5rem;
   color: ${(props) => props.theme["gray-100"]};
+  transition: color 0.5s;
 
   &::placeholder {
     color: ${(props) => props.theme["gray-500"]};

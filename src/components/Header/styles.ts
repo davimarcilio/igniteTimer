@@ -1,5 +1,32 @@
 import styled from "styled-components";
 
+export const LogoAndThemeContainer = styled.div`
+  display: flex;
+  gap: 1rem;
+`;
+
+export const ThemeSwitcher = styled.button`
+  width: 3rem;
+  height: 3rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: ${(props) => props.theme["gray-100"]};
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+
+  &:hover {
+    border-bottom: 3px solid ${(props) => props.theme["green-500"]};
+  }
+  &.active {
+    color: ${(props) => props.theme["green-500"]};
+  }
+`;
+
 export const HeaderContainer = styled.header`
   display: flex;
   align-items: center;
@@ -17,6 +44,8 @@ export const HeaderContainer = styled.header`
       align-items: center;
 
       color: ${(props) => props.theme["gray-100"]};
+      transition: color 0.5s;
+
       border-top: 3px solid transparent;
       border-bottom: 3px solid transparent;
 

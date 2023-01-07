@@ -23,10 +23,12 @@ interface CyclesContextType {
   activeCycle: Cycle | undefined;
   activeCycleId: string | null;
   amoutSecondsPassed: number;
+  theme: boolean;
   markCurrentCycleAsFinished: () => void;
   createNewCycle: (data: CreateCycleData) => void;
   setSecondsPassed: (seconds: number) => void;
   interruptCurrentCycle: () => void;
+  switchTheme: () => void;
 }
 
 export const CyclesContext = createContext({} as CyclesContextType);
@@ -48,6 +50,7 @@ export function CyclesContextProvider({
       const storedStateAsJSON = localStorage.getItem(
         "@ignite-timer:cyles-state"
       );
+
       if (storedStateAsJSON) {
         return JSON.parse(storedStateAsJSON);
       }
@@ -86,16 +89,28 @@ export function CyclesContextProvider({
   function interruptCurrentCycle() {
     dispatch(interruptCurrentCycleAction());
   }
+  const [theme, setTheme] = useState(true);
+
+  useEffect(() => {
+    const storedTheme = localStorage.getItem("@ignite-timer:theme");
+    if (storedTheme) {
+      setTheme(storedTheme === "true" ? true : false);
+    }
+  }, []);
 
   useEffect(() => {
     const stateJSON = JSON.stringify(cyclesState);
-
     localStorage.setItem("@ignite-timer:cyles-state", stateJSON);
   }, [cyclesState]);
-
+  function switchTheme() {
+    const actualTheme = !theme;
+    setTheme(actualTheme);
+    localStorage.setItem("@ignite-timer:theme", String(actualTheme));
+  }
   return (
     <CyclesContext.Provider
       value={{
+        theme,
         cycles,
         activeCycle,
         activeCycleId,
@@ -104,6 +119,7 @@ export function CyclesContextProvider({
         setSecondsPassed,
         createNewCycle,
         interruptCurrentCycle,
+        switchTheme,
       }}
     >
       {children}
