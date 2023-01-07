@@ -1,7 +1,6 @@
 import { createContext, ReactNode, useState, useReducer } from "react";
 import { Cycle, cyclesReducer } from "../reducers/cycles/reducer";
 import {
-  ActionTypes,
   addNewCycleAction,
   interruptCurrentCycleAction,
   markCurrentCycleAsFinishedAction,
