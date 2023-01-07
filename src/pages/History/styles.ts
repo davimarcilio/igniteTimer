@@ -4,6 +4,10 @@ export const HistoryContainer = styled.main`
   flex: 1;
   padding: 3.5rem;
 
+  @media (max-width: 768px) {
+    padding-left: 0.275rem;
+    padding-right: 0.275rem;
+  }
   display: flex;
   flex-direction: column;
 
