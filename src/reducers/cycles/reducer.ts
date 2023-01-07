@@ -13,8 +13,16 @@ export interface Cycle {
   finishedDate?: Date;
 }
 
-export function cyclesReducer(state: CyclesState, action: any) {
-  switch (action.type) {
+interface ActionReducerTypes {
+  type: ActionTypes;
+  payload?: Cycle;
+}
+
+export function cyclesReducer(
+  state: CyclesState,
+  { type, payload }: ActionReducerTypes
+) {
+  switch (type) {
     case ActionTypes.INTERRUPT_CURRENT_CYCLE: {
       const currentCycleIndex = state.cycles.findIndex((cycle) => {
         return cycle.id === state.activeCycleId;
@@ -28,8 +36,10 @@ export function cyclesReducer(state: CyclesState, action: any) {
     }
     case ActionTypes.CREATE_NEW_CYCLE:
       return produce(state, (draft) => {
-        draft.cycles.push(action.payload);
-        draft.activeCycleId = action.payload.id;
+        if (payload) {
+          draft.cycles.push(payload);
+          draft.activeCycleId = payload.id;
+        }
       });
     case ActionTypes.MARK_CURRENT_CYCLE_AS_FINISHED: {
       const currentCycleIndex = state.cycles.findIndex((cycle) => {

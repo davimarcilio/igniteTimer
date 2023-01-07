@@ -12,6 +12,34 @@ export const FormContainer = styled.div`
   flex-wrap: wrap;
 `;
 
+export const MinutesAmoutContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+`;
+
+const BaseInputButton = styled.button`
+  background: transparent;
+  border: none;
+  color: ${(props) => props.theme["gray-500"]};
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const PlusButton = styled(BaseInputButton)`
+  position: absolute;
+  right: 0;
+`;
+
+export const MinusButton = styled(BaseInputButton)`
+  position: absolute;
+  left: 0;
+`;
+
 const BaseInput = styled.input`
   background: transparent;
   height: 2.5rem;
@@ -39,5 +67,10 @@ export const TaskInput = styled(BaseInput)`
 `;
 
 export const MinutesAmoutInput = styled(BaseInput)`
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+  }
+  text-align: center;
   width: 4rem;
 `;
