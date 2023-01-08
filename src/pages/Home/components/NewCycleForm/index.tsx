@@ -32,6 +32,7 @@ export function NewCycleForm() {
         type="text"
         placeholder="Dê um nome para o seu projeto"
         disabled={!!activeCycle}
+        autoComplete="on"
         list="task-suggestions"
         {...register("task")}
       />
