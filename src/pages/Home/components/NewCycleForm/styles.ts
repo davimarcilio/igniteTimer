@@ -24,11 +24,16 @@ export const MinutesAmoutContainer = styled.div`
 const BaseInputButton = styled.button`
   background: transparent;
   border: none;
+  cursor: pointer;
   color: ${(props) => props.theme["gray-500"]};
 
   display: flex;
   justify-content: center;
   align-items: center;
+
+  &:hover:disabled {
+    cursor: not-allowed;
+  }
 `;
 
 export const PlusButton = styled(BaseInputButton)`
