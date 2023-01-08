@@ -386,4 +386,4 @@ body, input, textarea, button{
     font-weight: 400;
     font-size: 1rem;
 }
-`;function Ax(){const{theme:e}=C.useContext(dr);return He(kk,{theme:e?Tx:Lx,children:[Z(Px,{}),Z(Nx,{})]})}Ll.createRoot(document.getElementById("root")).render(Z(f.StrictMode,{children:Z(fg,{children:Z(k2,{children:Z(Ax,{})})})}));
+`;function Ax(){const{theme:e}=C.useContext(dr);return Z(kk,{theme:e?Tx:Lx,children:He(k2,{children:[Z(Px,{}),Z(Nx,{})]})})}Ll.createRoot(document.getElementById("root")).render(Z(f.StrictMode,{children:Z(fg,{children:Z(Ax,{})})}));
