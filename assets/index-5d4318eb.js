@@ -386,4 +386,4 @@ body, input, textarea, button{
     font-weight: 400;
     font-size: 1rem;
 }
-`;function Ax(){const{theme:e}=C.useContext(dr);return Fe(kk,{theme:e?Tx:Lx,children:[Fe(k2,{children:[H("button",{children:"dentro do app"}),H(Px,{})]}),H(Nx,{})]})}Ll.createRoot(document.getElementById("root")).render(H(f.StrictMode,{children:H(fg,{children:H(Ax,{})})}));
+`;function Ax(){const{theme:e}=C.useContext(dr);return Fe(kk,{theme:e?Tx:Lx,children:[Fe(k2,{basename:"/igniteTimer",children:[H("button",{children:"dentro do app"}),H(Px,{})]}),H(Nx,{})]})}Ll.createRoot(document.getElementById("root")).render(H(f.StrictMode,{children:H(fg,{children:H(Ax,{})})}));
