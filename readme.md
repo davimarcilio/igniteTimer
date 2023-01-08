@@ -38,4 +38,4 @@
 ![Timer](https://user-images.githubusercontent.com/104699555/211175603-d8dc8712-ab67-4218-9e15-f6260bd99b75.gif)
 
 <hr>
-<h2>Utilize em seu dia a dia <a href="#">Aqui</a></h2>
+<h2>Utilize em seu dia a dia <a href="https://davimarcilio.github.io/igniteTimer/">Aqui</a></h2>
